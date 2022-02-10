@@ -7,7 +7,7 @@ Onlyfans-type web service based on TOR with maximum privacy features.
 - "Vanishing" single-use feed CDN links
 - Landing page
 - No JavaScript!
-- Auto-generated deposit addresses for users
+- Auto-generated **Bitcoin** deposit addresses for users
 - Minimum balances to enter and view "the feed"
 - Monthly collection of user funds into a specified `WALLET_ADDRESS`
 - `.mov` and `.jpg` content distribution on a feed
