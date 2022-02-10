@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="/style.css">
+	<title>Feed: Store Title</title>
+</head>
+<body>
+	<div class="navbar">
+		<div class="logo-text">
+			<h1>Store Title</h1>
+			<p>Subtext</p>
+		</div>
+		<div class="nav-items">
+			<a href="index.html">About</a>
+			<a href="feed.html" class="active-link">Feed</a>
+		</div>
+	</div>
+	<div class="posts-container">
+		{% for post in posts %}
+			{% if post.isvideo %}
+			<div class="vid-post">
+				<p>{{post.caption}}</p>
+				<video controls>
+					<source src="{{post.src}}" type="video/mp4">
+				</video>
+			</div>
+			{% else %}
+			<div class="post">
+				<p>{{post.caption}}</p>
+				<img src="{{post.src}}" class="rounded-image" alt="nsfw">
+			</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<div class="navigation">
+		{% if i > 0 %}
+		<a href="/feed/{{i - 1}}.html"><img src="/assets/icons/left-arrow.png"></a>
+		{% endif %}
+		<p>{{i}}</p>
+		<a href="/feed/{{i + 1}}.html"><img src="/assets/icons/right-arrow.png"></a>
+	</div>
+</body>
+</html>

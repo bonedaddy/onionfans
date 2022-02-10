@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Account Overview</title>
+</head>
+<body>
+	<div class="navbar">
+		<div class="logo-text">
+			<h1>Store Title</h1>
+			<p>Subtext</p>
+		</div>
+		<div class="nav-items">
+			<a href="index.html">About</a>
+			<a href="account_overview.html" class="active-link">My Account</a>
+		</div>
+	</div>
+	<div class="account-ov-section">
+		<h1>Account Overview</h1>
+		<div class="account-ov">
+			<img src="assets/icons/account.png" alt="profile icon" width="12.5%">
+			<div class="account-details">
+				<p><b>Username:</b> {{ username }}</p>
+				<p><b>Balance:</b> {{ balance }} BTC</p>
+			</div>
+		</div>
+		{% if balance_insufficient %}
+			<div class="funding-details">
+				<p>Your account balance is insufficient! Maintain a balance of at least 0.0002 BTC to access exclusive photo/video content.</p>
+				<p>Please deposit Bitcoin (BTC) into one of your account wallets before refreshing:</p>
+				<div class="account-wallet-list">
+					{% for addr in account_wallets %}
+						<p>{{ addr }}</p>
+					{% endfor %}
+				</div>
+				<a href="new_wallet">Request new Address</a>
+			</div>
+		{% else %}
+			nothing
+		{% endif %}
+	</div>
+</body>
+</html>
